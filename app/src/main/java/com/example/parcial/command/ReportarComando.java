@@ -21,7 +21,7 @@ public class ReportarComando implements Comando{
     }
 
     public void rehacer(){
-        ejecutar(pensamientoReportado,mainActivity);
+        this.pensamientoRoomDao.insertarPensamiento(pensamientoReportado);
     }
 
     public void deshacer(){

@@ -20,7 +20,7 @@ public class EliminarComando implements Comando{
     }
 
     public void rehacer(){
-        ejecutar(pensamientoEliminado,mainActivity);
+        this.pensamientoRoomDao.eliminarPensamiento(pensamientoEliminado);
     }
 
     public void deshacer(){

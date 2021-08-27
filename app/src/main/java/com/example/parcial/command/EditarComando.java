@@ -22,7 +22,7 @@ public class EditarComando implements Comando{
     }
 
     public void rehacer(){
-        ejecutar(pensamientoNuevo,mainActivity);
+        this.pensamientoRoomDao.modificarPensamiento(pensamientoNuevo);
     }
 
     public void deshacer(){
