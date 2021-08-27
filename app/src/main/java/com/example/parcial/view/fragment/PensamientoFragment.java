@@ -69,7 +69,7 @@ public class PensamientoFragment extends Fragment {
         editarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getMainActivity().editar(getID(),getTitulo(),getDescripcion());
             }
         });
         eliminarButton.setOnClickListener(new View.OnClickListener() {

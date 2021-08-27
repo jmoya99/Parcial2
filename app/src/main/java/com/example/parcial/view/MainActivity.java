@@ -15,9 +15,10 @@ import android.widget.Spinner;
 
 import com.example.parcial.R;
 import com.example.parcial.controller.MainController;
+import com.example.parcial.view.fragment.EditarProductoDialog;
 import com.example.parcial.view.fragment.PensamientoFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EditarProductoDialog.EditarPensamientoDialogListener {
 
     public EditText tituloEditText;
     public EditText descripcionEditText;
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void tamanoExcedido(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("La descripción solo puede tener hasta 100 caracteres\n")
+        builder.setMessage("El titulo solo puede tener hasta 100 caracteres\n")
                 .setTitle("Algo fue Mal")
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
@@ -113,5 +114,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void rehacer(View view){
         controller.rehacer(this);
+    }
+
+    public void editar(int id,String titulo,String descripcion){
+        EditarProductoDialog editarProductoDialog = new EditarProductoDialog(id,titulo,descripcion);
+        editarProductoDialog.show(getSupportFragmentManager(), "example dialog");
+    }
+
+    @Override
+    public void editarPensamiento(int id, String titulo, String descripcion) {
+        controller.editar(this,id,titulo,descripcion);
     }
 }

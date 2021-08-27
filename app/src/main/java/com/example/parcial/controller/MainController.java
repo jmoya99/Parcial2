@@ -6,6 +6,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.parcial.command.Comando;
+import com.example.parcial.command.EditarComando;
 import com.example.parcial.command.EliminarComando;
 import com.example.parcial.command.ReportarComando;
 import com.example.parcial.model.LocalStorage;
@@ -97,6 +98,30 @@ public class MainController {
         Comando comando = new EliminarComando();
         pilaDeshacer.push(comando);
         Pensamiento pensamiento = this.pensamientoRoomDao.obtenerPensamiento(id);
+        comando.ejecutar(pensamiento,mainActivity);
+        mainActivity.recargarActivity();
+    }
+
+    public void editar(MainActivity mainActivity, int id, String titulo, String descripcion){
+        if(titulo == null || titulo.compareTo("")==0){
+            mainActivity.campoFaltante();
+            return;
+        }
+        if(descripcion == null || descripcion.compareTo("")==0){
+            mainActivity.campoFaltante();
+            return;
+        }
+        if(titulo.length() > 100){
+            mainActivity.tamanoExcedido();
+            return;
+        }
+        this.pensamientoRoomDao = LocalStorage.getLocalStorage(mainActivity.getApplicationContext())
+                .pensamientoRoomDao();
+        Comando comando = new EditarComando();
+        pilaDeshacer.push(comando);
+        Pensamiento pensamiento = this.pensamientoRoomDao.obtenerPensamiento(id);
+        pensamiento.setTitulo(titulo);
+        pensamiento.setDescripcion(descripcion);
         comando.ejecutar(pensamiento,mainActivity);
         mainActivity.recargarActivity();
     }
