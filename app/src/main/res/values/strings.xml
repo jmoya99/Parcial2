@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Tagebuch</string>
+    <string name="reportar_pensamiento">Reportar Pensamiento</string>
+    <string name="titulo">titulo</string>
+    <string name="descripcion">descripcion</string>
+    <string name="categoria">categoria</string>
+    <string name="reportar">Reportar</string>
+    <string name="pensamientos">Pensamientos</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="deshacer">Deshacer</string>
+    <string name="rehacer">Rehacer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="nombres_categoria">
+        <item>Pensamientos buenos</item>
+        <item>Pensamientos malo</item>
+        <item>Pensamientos suicidas</item>
+        <item>Viajes</item>
+        <item>Diagramación</item>
+    </string-array>
+</resources>
