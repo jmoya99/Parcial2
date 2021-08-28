@@ -26,8 +26,8 @@ import java.util.Stack;
 
 public class MainController {
 
-    public Stack<Comando> pilaDeshacer;
-    public Stack<Comando> pilaRehacer;
+    private Stack<Comando> pilaDeshacer;
+    private Stack<Comando> pilaRehacer;
     private PensamientoRoomDao pensamientoRoomDao;
 
     private static MainController mainController;
